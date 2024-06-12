@@ -4,6 +4,13 @@
 </script>
 
 <div class="grid grid-cols-4 w-1/3">
+    {#if mix_and_match_items?.male}
+    {#each mix_and_match_items.male.categories[0].garments as garment}
+        <div>
+            <img src={`https://preview.bitmoji.com/bm-preview/v3/avatar/top?scale=1&gender=1&style=5&top=${garment.id}&top_tone1=16052461&top_tone10=9993074&top_tone2=16052461&top_tone3=16052461&top_tone4=16052461&top_tone5=16448250&top_tone6=13873283&top_tone7=16448250&top_tone8=14010558&top_tone9=8548203&clothing_type=1`} alt="clothingItem">
+        </div>
+    {/each}
+    {/if}
 </div>
 
 {#if 1!==1}
