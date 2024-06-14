@@ -1,26 +1,13 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-    import { parse } from 'yaml'
+    import type { Wardrobe } from '$lib';
 
-    interface Wardrobe {
-        tops: any[];
-        bottoms: any[];
-    }
-    
     let data: Wardrobe = {
         tops: [],
         bottoms: []
     };
     
-    async function getData(): Promise<Wardrobe> {
-        const req = await fetch(`https://api.github.com/gists/0638af72e1abd8e9d0d3cc140043805d`);
-        const gist = await req.json();
-        const yamlContent = gist.files["wardrobe.yml"].content;
-        return parse(yamlContent);
-    }
     onMount(async () => {
-        data = await getData();
-        console.log(data)
     });
 </script>
 
